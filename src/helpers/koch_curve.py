@@ -35,7 +35,7 @@ def generate_koch_curve(depth: int = 5, resolution: int = 1024) -> np.ndarray:
 
     Segments between successive vertices are rasterized with
     Bresenham-style linear interpolation so every pixel on each segment
-    is marked True — no extra transformations are needed before calling
+    is marked True - no extra transformations are needed before calling
     box_counting_2d.
 
     Parameters:
@@ -63,7 +63,7 @@ def generate_koch_curve(depth: int = 5, resolution: int = 1024) -> np.ndarray:
     arr = np.zeros((resolution, resolution), dtype=bool)
 
     for i in range(len(coords) - 1):
-        c0, r0 = coords[i]       # x -> column, y → row
+        c0, r0 = coords[i]       # x -> column, y -> row
         c1, r1 = coords[i + 1]
 
         # Number of interpolation steps = Chebyshev distance (>= 1)
@@ -104,7 +104,7 @@ def visualize_koch_curve(arr: np.ndarray, depth: int = None) -> plt.Figure:
     fig.patch.set_facecolor("#0d0d0d")
     ax.set_facecolor("#0d0d0d")
 
-    # Display the boolean matrix directly — fast and exact
+    # Display the boolean matrix directly - fast and exact
     H, W = arr.shape
     ax.imshow(arr, cmap="gray", origin="upper",
               extent=[0, W, 0, H], interpolation="nearest",

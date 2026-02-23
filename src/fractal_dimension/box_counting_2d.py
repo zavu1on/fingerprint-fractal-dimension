@@ -107,6 +107,18 @@ def box_counting_2d(arr: np.ndarray,
 
     counts = np.array(counts, dtype=np.float64)
 
+    # Guard: need at least 2 scales with non-zero counts for regression
+    valid_mask = counts > 0
+    if valid_mask.sum() < 2:
+        return {
+            "dimension": 0.0,
+            "epsilons": epsilons,
+            "counts": counts,
+            "slope": 0.0,
+            "intercept": 0.0,
+            "r_squared": 0.0,
+        }
+
     # Perform linear regression
     log_inv_eps = np.log(1.0 / epsilons.astype(np.float64))
     log_counts = np.log(counts)
@@ -132,8 +144,6 @@ def _pick_indices(n: int, target: int = 3) -> list:
         return list(range(n))
     step = (n - 1) / (target - 1)
     return [int(round(i * step)) for i in range(target)]
-    # """Last target indices."""
-    # return list(range(n - target, n))[::-1]
 
 
 def visualize_box_counting_2d(arr: np.ndarray,

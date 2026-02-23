@@ -1,5 +1,5 @@
 import numpy as np
-from scipy.spatial import Delaunay
+from scipy.spatial import Delaunay, QhullError
 from scipy.stats import linregress
 import matplotlib.pyplot as plt
 from matplotlib.collections import PolyCollection
@@ -81,7 +81,12 @@ def delaunay_dimension(arr_or_pts: np.ndarray,
         if len(sub_pts) < 3:
             continue
 
-        tri = Delaunay(sub_pts)
+        try:
+            tri = Delaunay(sub_pts)
+        except QhullError:
+            # degenerate case, cannot build triangulation
+            continue
+
         simplices = tri.simplices  # (M, 3)
         verts = sub_pts[simplices]  # (M, 3, 2)
 
@@ -103,6 +108,19 @@ def delaunay_dimension(arr_or_pts: np.ndarray,
 
     deltas = deltas[: len(num_triangles)]
     num_triangles = np.array(num_triangles, dtype=np.float64)
+
+    if len(num_triangles) < 2:
+        return {
+            "dimension": 0.0,
+            "deltas": deltas,
+            "num_triangles": num_triangles,
+            "slope": 0.0,
+            "intercept": 0.0,
+            "r_squared": 0.0,
+            "triangulations": triangulations,
+            "subsampled_pts": subsampled_list,
+            "kept_masks": kept_masks,
+        }
 
     log_inv_d = np.log(1.0 / deltas)
     log_nt = np.log(num_triangles)

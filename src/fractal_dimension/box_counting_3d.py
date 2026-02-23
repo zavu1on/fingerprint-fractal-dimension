@@ -66,6 +66,17 @@ def box_counting_3d(arr: np.ndarray,
 
     counts = np.array(counts, dtype=np.float64)
 
+    valid_mask = counts > 0
+    if valid_mask.sum() < 2:
+        return {
+            "dimension": 0.0,
+            "epsilons": epsilons,
+            "counts": counts,
+            "slope": 0.0,
+            "intercept": 0.0,
+            "r_squared": 0.0,
+        }
+
     log_inv_eps = np.log(1.0 / epsilons.astype(np.float64))
     log_counts = np.log(counts)
     slope, intercept, r_value, _, _ = linregress(log_inv_eps, log_counts)
