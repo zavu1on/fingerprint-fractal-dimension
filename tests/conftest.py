@@ -80,7 +80,7 @@ def tmp_png(tmp_path):
 
 @pytest.fixture
 def tmp_jpg(tmp_path):
-    """A .jpg file (wrong extension for the app)."""
+    """A .jpg file (wrong extension for the src)."""
     img = Image.new("L", (32, 32), 0)
     path = tmp_path / "test.jpg"
     img.save(path)

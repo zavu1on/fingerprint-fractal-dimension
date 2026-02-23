@@ -1,17 +1,21 @@
 import os
 import numpy as np
 
-from src.helpers.koch_curve import generate_koch_curve, visualize_koch_curve
-from src.helpers.sierpinski_carpet import generate_sierpinski_carpet, visualize_sierpinski_carpet
-from src.helpers.sierpinski_triangle import generate_sierpinski_triangle, visualize_sierpinski_triangle
-from src.helpers.menger_sponge import generate_menger_sponge, visualize_menger_sponge
+from .helpers.koch_curve import generate_koch_curve, visualize_koch_curve
+from .helpers.sierpinski_carpet import generate_sierpinski_carpet, visualize_sierpinski_carpet
+from .helpers.sierpinski_triangle import generate_sierpinski_triangle, visualize_sierpinski_triangle
+from .helpers.menger_sponge import generate_menger_sponge, visualize_menger_sponge
 
-from src.fractal_dimension.box_counting_2d import box_counting_2d, visualize_box_counting_2d
-from src.fractal_dimension.box_counting_3d import box_counting_3d, visualize_box_counting_3d
-from src.fractal_dimension.delaunay_dimension import delaunay_dimension, visualize_delaunay
+from .fractal_dimension.box_counting_2d import box_counting_2d
+from .fractal_dimension.box_counting_3d import box_counting_3d
+from .fractal_dimension.delaunay_dimension import delaunay_dimension
 
-from src.image.png_to_2d import png_to_2d
-from src.image.png_to_3d import png_to_3d
+from .plot.box_counting_2d import visualize_box_counting_2d
+from .plot.box_counting_3d import visualize_box_counting_3d
+from .plot.delaunay_dimension import visualize_delaunay
+
+from .image.png_to_2d import png_to_2d
+from .image.png_to_3d import png_to_3d
 
 
 DEMO_2D = {
@@ -65,7 +69,7 @@ def run_2d_demo(cmd: str, method: str):
     print("Аналитическая размерность:", analytical_dim)
     print("Расчетная размерность:    ", estimated_dim)
     print("Ошибка:                   ", np.round(
-        np.abs(estimated_dim - analytical_dim, 5)))
+        np.abs(estimated_dim - analytical_dim), 5))
     print(
         "Коэффициент детерминированности линейной регрессии:",
         np.round(estimated_res["r_squared"], 5)
@@ -101,7 +105,7 @@ def run_3d_demo(cmd: str):
     print("Аналитическая размерность:", analytical_dim)
     print("Расчетная размерность:    ", estimated_dim)
     print("Ошибка:                   ", np.round(
-        np.abs(estimated_dim - analytical_dim, 5)))
+        np.abs(estimated_dim - analytical_dim), 5))
     print(
         "Коэффициент детерминированности линейной регрессии:",
         np.round(estimated_res["r_squared"], 5)
@@ -207,7 +211,3 @@ def main():
             break
         else:
             print("Неверная команда")
-
-
-if __name__ == "__main__":
-    main()
