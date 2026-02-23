@@ -9,12 +9,12 @@ Includes: parametrized tests for fractal generators, numpy.testing matchers,
 import numpy as np
 import pytest
 
-from src.fractal_dimension.box_counting_3d import box_counting_3d
-from src.fractal_dimension.box_counting_2d import _divisor_scales
-from src.helpers.menger_sponge import generate_menger_sponge
-from src.helpers.koch_curve import generate_koch_curve
-from src.helpers.sierpinski_carpet import generate_sierpinski_carpet
-from src.helpers.sierpinski_triangle import generate_sierpinski_triangle
+from app.fractal_dimension.box_counting_3d import box_counting_3d
+from app.fractal_dimension.box_counting_2d import _divisor_scales
+from app.helpers.menger_sponge import generate_menger_sponge
+from app.helpers.koch_curve import generate_koch_curve
+from app.helpers.sierpinski_carpet import generate_sierpinski_carpet
+from app.helpers.sierpinski_triangle import generate_sierpinski_triangle
 
 
 # TC-BR-01: max_box=None (T), use_div=True (T), ≥4 divisors (len<4 F)

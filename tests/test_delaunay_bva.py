@@ -6,7 +6,7 @@ num_scales extremes, min_frac limits, edge_factor edges, minimal point sets.
 
 Includes: pytest.importorskip (assumption), pytest.skip (assumption).
 """
-from src.fractal_dimension.delaunay_dimension import delaunay_dimension
+from app.fractal_dimension.delaunay_dimension import delaunay_dimension
 import numpy as np
 import pytest
 
@@ -18,7 +18,7 @@ scipy = pytest.importorskip(
 # TC-BV-01: Default params on known fractal
 
 def test_default_params(sierpinski_carpet_243):
-    """Baseline: D = 1.893, R² > 0.9."""
+    """Baseline: D = 1.893, R^2 > 0.9."""
     res = delaunay_dimension(sierpinski_carpet_243)
     assert res["dimension"] == pytest.approx(1.8928, abs=0.15)
     assert res["r_squared"] > 0.9

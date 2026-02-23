@@ -2,9 +2,9 @@ import pytest
 import numpy as np
 from PIL import Image
 
-from src.helpers.sierpinski_carpet import generate_sierpinski_carpet
-from src.helpers.sierpinski_triangle import generate_sierpinski_triangle
-from src.helpers.menger_sponge import generate_menger_sponge
+from app.helpers.sierpinski_carpet import generate_sierpinski_carpet
+from app.helpers.sierpinski_triangle import generate_sierpinski_triangle
+from app.helpers.menger_sponge import generate_menger_sponge
 
 
 @pytest.fixture
@@ -80,7 +80,7 @@ def tmp_png(tmp_path):
 
 @pytest.fixture
 def tmp_jpg(tmp_path):
-    """A .jpg file (wrong extension for the src)."""
+    """A .jpg file (wrong extension for the app)."""
     img = Image.new("L", (32, 32), 0)
     path = tmp_path / "test.jpg"
     img.save(path)

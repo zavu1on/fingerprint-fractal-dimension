@@ -9,9 +9,9 @@ Includes: parametrized tests, pytest.approx matcher, numpy.testing matchers.
 import numpy as np
 import pytest
 
-from src.fractal_dimension.box_counting_2d import box_counting_2d
-from src.helpers.sierpinski_carpet import generate_sierpinski_carpet
-from src.helpers.sierpinski_triangle import generate_sierpinski_triangle
+from app.fractal_dimension.box_counting_2d import box_counting_2d
+from app.helpers.sierpinski_carpet import generate_sierpinski_carpet
+from app.helpers.sierpinski_triangle import generate_sierpinski_triangle
 
 REQUIRED_KEYS = {"dimension", "epsilons",
                  "counts", "slope", "intercept", "r_squared"}
