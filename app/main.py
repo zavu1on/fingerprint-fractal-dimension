@@ -162,10 +162,10 @@ def main():
             path = input(">> ")
 
             if not os.path.exists(path):
-                print("Файл не найден")
+                print("Файл не найден")
                 continue
             if not path.endswith(".png"):
-                print("Неверное расширение файла")
+                print("Неверное расширение файла")
                 continue
 
             method_func = None

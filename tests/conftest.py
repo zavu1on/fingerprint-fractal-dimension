@@ -1,10 +1,24 @@
-import pytest
-import numpy as np
-from PIL import Image
+# autopep8: off
 
-from app.helpers.sierpinski_carpet import generate_sierpinski_carpet
-from app.helpers.sierpinski_triangle import generate_sierpinski_triangle
+import sys
+import sys
+from pathlib import Path
+
+_here = Path(__file__).resolve()
+for parent in _here.parents:
+    if (parent / "app").is_dir():
+        sys.path.insert(0, str(parent))
+        break
+else:
+    raise RuntimeError(f"Can't find project root containing 'app' from {_here}")
+
 from app.helpers.menger_sponge import generate_menger_sponge
+from app.helpers.sierpinski_triangle import generate_sierpinski_triangle
+from app.helpers.sierpinski_carpet import generate_sierpinski_carpet
+from PIL import Image
+import numpy as np
+import pytest
+
 
 
 @pytest.fixture

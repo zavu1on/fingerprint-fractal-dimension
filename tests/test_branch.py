@@ -17,7 +17,7 @@ from app.helpers.sierpinski_carpet import generate_sierpinski_carpet
 from app.helpers.sierpinski_triangle import generate_sierpinski_triangle
 
 
-# TC-BR-01: max_box=None (T), use_div=True (T), ≥4 divisors (len<4 F)
+# TC-BR-01: max_box=None (T), use_div=True (T), >=4 divisors (len<4 F)
 
 def test_menger_default(menger_sponge_81):
     """Branches: max_box=None -> T, use_divisors -> T, len<4 -> F."""
@@ -43,7 +43,7 @@ def test_menger_no_divisors(menger_sponge_81):
     assert res["dimension"] > 0
 
 
-# TC-BR-04: Sparse 7³ - few divisors triggers augmentation
+# TC-BR-04: Sparse 7^3 - few divisors triggers augmentation
 
 def test_sparse_few_divisors(sparse_7):
     """Branch: len(epsilons) < 4 -> T, geometric augmentation applied."""
@@ -51,7 +51,7 @@ def test_sparse_few_divisors(sparse_7):
     assert len(res["epsilons"]) >= 2
 
 
-# TC-BR-05: Full 27³ - cube.any() always True
+# TC-BR-05: Full 27^3 - cube.any() always True
 
 def test_full_3d(full_3d_27):
     """Branch: cube.any() -> T for every cube. D = 3."""
@@ -59,7 +59,7 @@ def test_full_3d(full_3d_27):
     assert res["dimension"] == pytest.approx(3.0, abs=0.3)
 
 
-# TC-BR-06: Empty 27³ - cube.any() always False
+# TC-BR-06: Empty 27^3 - cube.any() always False
 
 def test_empty_3d(empty_3d_27):
     """Branch: cube.any() -> F for every cube. Dimension = 0 (degenerate)."""

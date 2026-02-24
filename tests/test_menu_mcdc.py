@@ -2,9 +2,9 @@
 MC/DC tests for the console menu and Koch curve coordinate clipping.
 
 Automotive Safety Integrity Levels:
-D1: file validation - exists(C1) ∧ endswith_png(C2)
+D1: file validation - exists(C1) ^ endswith_png(C2)
 D2: command routing - if/elif chain
-D3: Koch clipping - rows>=0(C3) ∧ rows<res(C4) ∧ cols>=0(C5) ∧ cols<res(C6)
+D3: Koch clipping - rows>=0(C3) ^ rows<res(C4) ^ cols>=0(C5) ^ cols<res(C6)
 
 Includes: 3 kinds of mocking (patch return_value, patch side_effect, MagicMock),
           assertions (assert ==, assert in, assert_called_once, assert_called_with).
@@ -42,7 +42,7 @@ def test_valid_png_triggers_computation(tmp_png, mocker):
     mock_bc.assert_called_once()
 
 
-# TC-MC-02: C1=F -> "Файл не найден"
+# TC-MC-02: C1=F -> "Файл не найден"
 
 def test_missing_file(mocker, capsys):
     """Non-existent path -> error message printed."""
@@ -53,17 +53,17 @@ def test_missing_file(mocker, capsys):
     from app.main import main
     main()
     # assertion: assert ... in (substring check)
-    assert "Файл не найден" in capsys.readouterr().out
+    assert "Файл не найден" in capsys.readouterr().out
 
 
-# TC-MC-03: C2=F -> "Неверное расширение"
+# TC-MC-03: C2=F -> "Неверное расширение файла"
 
 def test_wrong_extension(tmp_jpg, mocker, capsys):
     """Existing .jpg -> wrong extension error."""
     mocker.patch("builtins.input", side_effect=["\\bc2d", tmp_jpg, "\\e"])
     from app.main import main
     main()
-    assert "Неверное расширение" in capsys.readouterr().out
+    assert "Неверное расширение файла" in capsys.readouterr().out
 
 
 # TC-MC-04: \bc3d triggers box_counting_3d

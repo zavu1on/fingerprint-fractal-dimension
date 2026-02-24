@@ -30,7 +30,7 @@ def box_counting_3d(arr: np.ndarray,
         True -> use only box sizes that divide all sides of the shape.
 
     Returns
-    - dict  – same as the output of box_counting_2d.
+    - dict  - same as the output of box_counting_2d.
     """
     arr = arr.astype(bool)
     D1, D2, D3 = arr.shape

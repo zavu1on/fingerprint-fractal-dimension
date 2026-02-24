@@ -56,7 +56,7 @@ def test_triangle_each_near_analytical(method, key):
 # подтверждая, что линейная регрессия в обоих случаях состоялась.
 
 def test_koch_both_r_squared_positive():
-    """R^2 > 0 у обоих методов на кривой Коха — регрессия состоятельна."""
+    """R^2 > 0 у обоих методов на кривой Коха - регрессия состоятельна."""
     arr = generate_koch_curve(depth=5, resolution=512)
     res_bc = box_counting_2d(arr)
     res_td = delaunay_dimension(arr)

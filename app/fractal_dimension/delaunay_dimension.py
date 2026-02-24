@@ -35,15 +35,15 @@ def delaunay_dimension(arr_or_pts: np.ndarray,
     Returns
     -------
     dict
-        'dimension'      – estimated fractal dimension D
-        'deltas'         – array of scales delta
-        'num_triangles'  – array of N(delta) values for each delta
+        'dimension'      - estimated fractal dimension D
+        'deltas'         - array of scales delta
+        'num_triangles'  - array of N(delta) values for each delta
         'slope',         - slope of the linear regression
         'intercept',     - intercept of the linear regression
         'r_squared'      - coefficient of determination
-        'triangulations' – list of Delaunay objects (for visualization)
-        'subsampled_pts' – list of arrays of sampled points
-        'kept_masks'     – masks of "local" triangles
+        'triangulations' - list of Delaunay objects (for visualization)
+        'subsampled_pts' - list of arrays of sampled points
+        'kept_masks'     - masks of "local" triangles
     """
     if arr_or_pts.ndim == 2 and arr_or_pts.shape[1] == 2 and arr_or_pts.dtype.kind == "f":
         # Already an array of points (N, 2)

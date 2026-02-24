@@ -60,7 +60,7 @@ def test_single_pixel_dimension(single_pixel_64):
     assert abs(res["dimension"]) < 0.5
 
 
-# TC-EP-06: Minimal 2×2 array
+# TC-EP-06: Minimal 2x2 array
 
 def test_minimal_array():
     """2x2 input must not crash; returns dimension=0 (only 1 scale)."""
