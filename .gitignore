@@ -52,6 +52,9 @@ coverage.xml
 cover/
 mutants
 
+# python-behave
+pretty.output
+
 # Translations
 *.mo
 *.pot

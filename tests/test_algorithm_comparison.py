@@ -13,6 +13,7 @@ ANALYTICAL = {
 
 ABS_TOL_EACH = 0.15
 ABS_TOL_DIFF = 0.20
+DETERMINATION_THRESHOLD = 0.95
 
 
 # TC-CMP-01: Оба метода дают значение в одном диапазоне на ковре Серпинского.
@@ -56,12 +57,12 @@ def test_triangle_each_near_analytical(method, key):
 # подтверждая, что линейная регрессия в обоих случаях состоялась.
 
 def test_koch_both_r_squared_positive():
-    """R^2 > 0 у обоих методов на кривой Коха - регрессия состоятельна."""
+    f"""R^2 > {DETERMINATION_THRESHOLD} у обоих методов на кривой Коха - регрессия состоятельна."""
     arr = generate_koch_curve(depth=5, resolution=512)
     res_bc = box_counting_2d(arr)
     res_td = delaunay_dimension(arr)
 
-    assert res_bc["r_squared"] > 0, \
+    assert res_bc["r_squared"] > DETERMINATION_THRESHOLD, \
         f"Box-counting R^2={res_bc['r_squared']:.4f} не положителен"
-    assert res_td["r_squared"] > 0, \
+    assert res_td["r_squared"] > DETERMINATION_THRESHOLD, \
         f"Делоне R^2={res_td['r_squared']:.4f} не положителен"
