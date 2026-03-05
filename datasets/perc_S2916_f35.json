@@ -1,13 +1,20 @@
 {
   "name": "perc_S2916_f35",
+  "method": "mandelbrot_fractal_percolation",
+  "base_depth": 6,
+  "base_size": 729,
   "resolution": 2916,
+  "scale_factor": 4,
   "shape": [
     2916,
     2916
   ],
-  "fill_ratio_actual": 0.350095,
-  "occupied_pixels": 2976874,
+  "fill_ratio_target": 0.35,
+  "fill_ratio_actual": 0.35482,
+  "occupied_pixels": 3017056,
   "total_pixels": 8503056,
   "dtype": "bool",
-  "file_size_bytes": 8503184
+  "file_size_bytes": 8503184,
+  "retain_prob": 0.839482,
+  "analytical_dimension": 1.840735
 }

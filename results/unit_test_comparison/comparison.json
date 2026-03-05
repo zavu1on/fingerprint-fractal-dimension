@@ -1,7 +1,7 @@
 {
   "unit_test": "test_carpet_methods_agree",
   "unit_test_file": "tests/test_algorithm_comparison.py",
-  "assertion": "abs(D_bc - D_td) < 0.05",
+  "assertion": "abs(D_bc - D_td) < {tol}",
   "bdd_d_bc": 1.892789,
   "bdd_d_td": 1.901474,
   "bdd_diff": 0.008685,

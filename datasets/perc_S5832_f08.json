@@ -1,13 +1,20 @@
 {
   "name": "perc_S5832_f08",
+  "method": "mandelbrot_fractal_percolation",
+  "base_depth": 6,
+  "base_size": 729,
   "resolution": 5832,
+  "scale_factor": 8,
   "shape": [
     5832,
     5832
   ],
-  "fill_ratio_actual": 0.079972,
-  "occupied_pixels": 2720015,
+  "fill_ratio_target": 0.08,
+  "fill_ratio_actual": 0.036648,
+  "occupied_pixels": 1246464,
   "total_pixels": 34012224,
   "dtype": "bool",
-  "file_size_bytes": 34012352
+  "file_size_bytes": 34012352,
+  "retain_prob": 0.65642,
+  "analytical_dimension": 1.61683
 }

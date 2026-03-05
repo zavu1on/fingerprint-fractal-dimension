@@ -2,22 +2,22 @@
   "dataset": "perc_S5832_f08",
   "resolution": 5832,
   "fill_ratio": 0.08,
-  "n_points": 2720015,
+  "n_points": 1246464,
   "timings": {
-    "generation_sec": 0.0577,
-    "box_counting_sec": 195.5861,
-    "delaunay_sec": 12.9354,
-    "total_algorithms_sec": 208.5215
+    "generation_sec": 0.0423,
+    "box_counting_sec": 219.2251,
+    "delaunay_sec": 6.739,
+    "total_algorithms_sec": 225.9641
   },
   "box_counting": {
-    "dimension": 1.864996,
-    "r_squared": 0.98882,
+    "dimension": 1.603793,
+    "r_squared": 0.9947,
     "num_scales": 27
   },
   "delaunay": {
-    "dimension": 2.028261,
-    "r_squared": 0.999665,
+    "dimension": 1.609069,
+    "r_squared": 0.999517,
     "num_scales": 12
   },
-  "dimension_diff": 0.163266
+  "dimension_diff": 0.005276
 }

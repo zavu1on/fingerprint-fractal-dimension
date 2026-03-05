@@ -1,13 +1,20 @@
 {
   "name": "perc_S2916_f10",
+  "method": "mandelbrot_fractal_percolation",
+  "base_depth": 6,
+  "base_size": 729,
   "resolution": 2916,
+  "scale_factor": 4,
   "shape": [
     2916,
     2916
   ],
-  "fill_ratio_actual": 0.099881,
-  "occupied_pixels": 849290,
+  "fill_ratio_target": 0.1,
+  "fill_ratio_actual": 0.048852,
+  "occupied_pixels": 415392,
   "total_pixels": 8503056,
   "dtype": "bool",
-  "file_size_bytes": 8503184
+  "file_size_bytes": 8503184,
+  "retain_prob": 0.681292,
+  "analytical_dimension": 1.650683
 }
