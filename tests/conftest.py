@@ -1,7 +1,6 @@
 # autopep8: off
 
 import sys
-import sys
 from pathlib import Path
 
 _here = Path(__file__).resolve()

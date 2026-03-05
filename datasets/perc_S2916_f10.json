@@ -1,0 +1,13 @@
+{
+  "name": "perc_S2916_f10",
+  "resolution": 2916,
+  "shape": [
+    2916,
+    2916
+  ],
+  "fill_ratio_actual": 0.099881,
+  "occupied_pixels": 849290,
+  "total_pixels": 8503056,
+  "dtype": "bool",
+  "file_size_bytes": 8503184
+}

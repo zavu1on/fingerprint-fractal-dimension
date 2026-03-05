@@ -1,0 +1,13 @@
+{
+  "name": "perc_S5832_f25",
+  "resolution": 5832,
+  "shape": [
+    5832,
+    5832
+  ],
+  "fill_ratio_actual": 0.249964,
+  "occupied_pixels": 8501816,
+  "total_pixels": 34012224,
+  "dtype": "bool",
+  "file_size_bytes": 34012352
+}

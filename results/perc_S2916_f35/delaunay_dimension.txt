@@ -1,0 +1,48 @@
+         1823 function calls in 14.025 seconds
+
+   Ordered by: cumulative time
+   List reduced from 206 to 40 due to restriction <40>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1   13.655   13.655   14.025   14.025 C:\Users\joinm\Documents\fingerprint-fractal-dimension\app\fractal_dimension\delaunay_dimension.py:6(delaunay_dimension)
+       20    0.173    0.009    0.173    0.009 {method 'astype' of 'numpy.ndarray' objects}
+      101    0.165    0.002    0.165    0.002 {method 'reduce' of 'numpy.ufunc' objects}
+       13    0.000    0.000    0.082    0.006 C:\Users\joinm\Documents\fingerprint-fractal-dimension\env\Lib\site-packages\numpy\_core\_methods.py:39(_amax)
+        1    0.000    0.000    0.079    0.079 {method 'max' of 'numpy.ndarray' objects}
+       13    0.000    0.000    0.076    0.006 C:\Users\joinm\Documents\fingerprint-fractal-dimension\env\Lib\site-packages\numpy\_core\_methods.py:43(_amin)
+        1    0.000    0.000    0.073    0.073 {method 'min' of 'numpy.ndarray' objects}
+        1    0.021    0.021    0.021    0.021 C:\Users\joinm\Documents\fingerprint-fractal-dimension\env\Lib\site-packages\numpy\lib\_shape_base_impl.py:625(column_stack)
+       37    0.003    0.000    0.010    0.000 C:\Users\joinm\Documents\fingerprint-fractal-dimension\env\Lib\site-packages\numpy\linalg\_linalg.py:2598(norm)
+       12    0.000    0.000    0.006    0.000 C:\Users\joinm\AppData\Local\Programs\Python\Python313\Lib\tempfile.py:321(mkstemp)
+       12    0.000    0.000    0.006    0.000 C:\Users\joinm\AppData\Local\Programs\Python\Python313\Lib\tempfile.py:243(_mkstemp_inner)
+       12    0.005    0.000    0.005    0.000 {built-in method nt.open}
+        1    0.000    0.000    0.001    0.001 C:\Users\joinm\Documents\fingerprint-fractal-dimension\env\Lib\site-packages\scipy\stats\_axis_nan_policy.py:426(axis_nan_policy_wrapper)
+       12    0.000    0.000    0.001    0.000 {method 'sum' of 'numpy.ndarray' objects}
+       12    0.000    0.000    0.000    0.000 C:\Users\joinm\Documents\fingerprint-fractal-dimension\env\Lib\site-packages\numpy\_core\_methods.py:47(_sum)
+       12    0.000    0.000    0.000    0.000 {built-in method builtins.next}
+       14    0.000    0.000    0.000    0.000 C:\Users\joinm\Documents\fingerprint-fractal-dimension\env\Lib\site-packages\numpy\_core\_methods.py:55(_any)
+       12    0.000    0.000    0.000    0.000 C:\Users\joinm\AppData\Local\Programs\Python\Python313\Lib\tempfile.py:114(_sanitize_params)
+       12    0.000    0.000    0.000    0.000 C:\Users\joinm\AppData\Local\Programs\Python\Python313\Lib\tempfile.py:153(__next__)
+        1    0.000    0.000    0.000    0.000 C:\Users\joinm\Documents\fingerprint-fractal-dimension\env\Lib\site-packages\scipy\stats\_stats_py.py:10394(linregress)
+        3    0.000    0.000    0.000    0.000 C:\Users\joinm\AppData\Local\Programs\Python\Python313\Lib\inspect.py:2487(_signature_from_callable)
+        1    0.000    0.000    0.000    0.000 C:\Users\joinm\Documents\fingerprint-fractal-dimension\env\Lib\site-packages\scipy\stats\_axis_nan_policy.py:45(_broadcast_arrays)
+        1    0.000    0.000    0.000    0.000 C:\Users\joinm\Documents\fingerprint-fractal-dimension\env\Lib\site-packages\numpy\_core\function_base.py:311(geomspace)
+       12    0.000    0.000    0.000    0.000 C:\Users\joinm\AppData\Local\Programs\Python\Python313\Lib\random.py:458(choices)
+      159    0.000    0.000    0.000    0.000 {built-in method builtins.isinstance}
+        3    0.000    0.000    0.000    0.000 C:\Users\joinm\AppData\Local\Programs\Python\Python313\Lib\inspect.py:2383(_signature_from_function)
+       12    0.000    0.000    0.000    0.000 C:\Users\joinm\AppData\Local\Programs\Python\Python313\Lib\tempfile.py:85(_infer_return_type)
+        1    0.000    0.000    0.000    0.000 C:\Users\joinm\AppData\Local\Programs\Python\Python313\Lib\inspect.py:3373(signature)
+        1    0.000    0.000    0.000    0.000 C:\Users\joinm\AppData\Local\Programs\Python\Python313\Lib\inspect.py:3094(from_callable)
+       12    0.000    0.000    0.000    0.000 <frozen ntpath>:573(abspath)
+      110    0.000    0.000    0.000    0.000 {built-in method builtins.len}
+        1    0.000    0.000    0.000    0.000 C:\Users\joinm\Documents\fingerprint-fractal-dimension\env\Lib\site-packages\numpy\lib\_function_base_impl.py:2674(cov)
+        2    0.000    0.000    0.000    0.000 C:\Users\joinm\AppData\Local\Programs\Python\Python313\Lib\inspect.py:1331(getfullargspec)
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+        1    0.000    0.000    0.000    0.000 C:\Users\joinm\Documents\fingerprint-fractal-dimension\env\Lib\site-packages\scipy\stats\_axis_nan_policy.py:62(_broadcast_shapes)
+       12    0.000    0.000    0.000    0.000 C:\Users\joinm\AppData\Local\Programs\Python\Python313\Lib\tempfile.py:317(gettempdirb)
+        5    0.000    0.000    0.000    0.000 C:\Users\joinm\Documents\fingerprint-fractal-dimension\env\Lib\site-packages\numpy\_core\fromnumeric.py:2436(any)
+        6    0.000    0.000    0.000    0.000 C:\Users\joinm\Documents\fingerprint-fractal-dimension\env\Lib\site-packages\numpy\_core\fromnumeric.py:86(_wrapreduction_any_all)
+       12    0.000    0.000    0.000    0.000 <frozen ntpath>:99(join)
+       24    0.000    0.000    0.000    0.000 <frozen os>:844(fsencode)
+
+

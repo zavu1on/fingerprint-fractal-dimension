@@ -1,7 +1,6 @@
 import sys
 from pathlib import Path
 
-import numpy as np
 import pytest
 from pytest_bdd import then, parsers
 from PIL import Image
@@ -14,7 +13,7 @@ for parent in _here.parents:
         break
 
 
-# ===================== Shared fixtures =====================
+# Shared fixtures
 
 @pytest.fixture
 def context():
@@ -41,9 +40,7 @@ def tmp_jpg(tmp_path):
     return str(path)
 
 
-# =================== Shared Then steps ====================
-# These Then steps appear in multiple feature files and MUST be
-# defined once to avoid pytest-bdd step registration conflicts.
+# Shared Then
 
 @then(parsers.parse(
     "размерность должна быть близка к {expected:f} с допуском {tol:f}"

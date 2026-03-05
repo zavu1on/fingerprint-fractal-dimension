@@ -1,0 +1,23 @@
+{
+  "dataset": "perc_S2916_f35",
+  "resolution": 2916,
+  "fill_ratio": 0.35,
+  "n_points": 2976874,
+  "timings": {
+    "generation_sec": 0.011,
+    "box_counting_sec": 48.5239,
+    "delaunay_sec": 14.0337,
+    "total_algorithms_sec": 62.5576
+  },
+  "box_counting": {
+    "dimension": 1.949183,
+    "r_squared": 0.997632,
+    "num_scales": 20
+  },
+  "delaunay": {
+    "dimension": 2.027715,
+    "r_squared": 0.999623,
+    "num_scales": 12
+  },
+  "dimension_diff": 0.078532
+}
