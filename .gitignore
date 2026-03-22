@@ -216,3 +216,6 @@ assets/
 
 # Sonar
 .sonar/
+
+.pymon
+*.dat
