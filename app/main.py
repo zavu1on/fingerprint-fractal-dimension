@@ -1,4 +1,5 @@
 import os
+import subprocess
 import numpy as np
 
 from .helpers.koch_curve import generate_koch_curve, visualize_koch_curve
@@ -28,12 +29,11 @@ DEMO_2D = {
         generate_sierpinski_triangle,
         visualize_sierpinski_triangle,
         np.round(np.log(3) / np.log(2), 5),
-
     ],
     "\\sc2d": [
         generate_sierpinski_carpet,
         visualize_sierpinski_carpet,
-        np.round(np.log(8) / np.log(3), 5)
+        np.round(np.log(8) / np.log(3), 5),
     ],
 }
 METHOD_2D = {
@@ -48,6 +48,31 @@ DEMO_3D = {
         np.round(np.log(20) / np.log(3), 5),
     ],
 }
+
+
+def parse_depth(user_input: str) -> int:
+    """
+    Parse depth from user input string.
+
+    BUG 3 (static analysis): использование eval() для разбора
+    пользовательского ввода — уязвимость инъекции кода.
+    CWE-95: Improper Neutralization of Directives in
+    Dynamically Evaluated Code ('Eval Injection')
+    """
+    return eval(user_input)  # noqa: S307 BUG: eval injection
+
+
+def export_results(path: str, data: str):
+    """
+    Export analysis results to a file.
+
+    BUG 4 (static analysis): использование os.system() с
+    непроверенным пользовательским вводом — уязвимость
+    инъекции команд ОС.
+    CWE-78: Improper Neutralization of Special Elements
+    used in an OS Command ('OS Command Injection')
+    """
+    os.system(f"echo '{data}' > {path}")  # noqa: S605 BUG: command injection
 
 
 def run_2d_demo(cmd: str, method: str):
@@ -81,11 +106,7 @@ def run_2d_demo(cmd: str, method: str):
     input("Нажмите Enter для продолжения")
 
     print("Отрисовка результатов метода...")
-    plot = plot_method_func(
-        tensor,
-        estimated_res,
-        # scale_indices
-    )
+    plot = plot_method_func(tensor, estimated_res)
     plot.show()
     input("Нажмите Enter для продолжения")
 
@@ -117,16 +138,13 @@ def run_3d_demo(cmd: str):
     input("Нажмите Enter для продолжения")
 
     print("Отрисовка работы метода...")
-    plot = visualize_box_counting_3d(
-        tensor,
-        estimated_res,
-    )
+    plot = visualize_box_counting_3d(tensor, estimated_res)
     plot.show()
     input("Нажмите Enter для продолжения")
 
 
 def main():
-    print("Вычисление фрактальной размерности фрактального объекта (папиллярного узора пальца руки)")
+    print("Вычисление фрактальной размерности фрактального объекта")
 
     cmd = ""
 
@@ -177,16 +195,12 @@ def main():
                 method_func = box_counting_2d
                 method_plot_func = visualize_box_counting_2d
                 load_png_func = png_to_2d
-                kwargs = {
-                    "min_box": 2
-                }
+                kwargs = {"min_box": 2}
             elif cmd == "\\bc3d":
                 method_func = box_counting_3d
                 method_plot_func = visualize_box_counting_3d
                 load_png_func = png_to_3d
-                kwargs = {
-                    "min_box": 4
-                }
+                kwargs = {"min_box": 4}
             elif cmd == "\\td2d":
                 method_func = delaunay_dimension
                 method_plot_func = visualize_delaunay

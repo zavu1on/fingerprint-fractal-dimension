@@ -11,6 +11,10 @@ def delaunay_dimension(arr_or_pts: np.ndarray,
     """
     Estimate the fractal dimension of a 2D set using the Delaunay triangulation method.
 
+    BUG INTRODUCED: removed `if len(sub_pts) < 3: continue` guard.
+    When subsampling at large delta produces < 3 points,
+    Delaunay() raises QhullError or ValueError (need >= 3 points).
+
     Algorithm:
       1. From a binary matrix, extract coordinates of occupied pixels
          (or take a ready array of points (N, 2)).
@@ -74,8 +78,9 @@ def delaunay_dimension(arr_or_pts: np.ndarray,
                 cells[key] = idx
         sub_pts = pts[list(cells.values())]
 
-        if len(sub_pts) < 3:
-            continue
+        # Bug
+        # if len(sub_pts) < 3:
+        #     continue
 
         try:
             tri = Delaunay(sub_pts)

@@ -213,3 +213,6 @@ __marimo__/
 
 # Assets
 assets/
+
+# Sonar
+.sonar/

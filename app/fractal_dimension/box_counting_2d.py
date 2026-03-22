@@ -37,6 +37,10 @@ def box_counting_2d(arr: np.ndarray,
     """
     Estimate the fractal (box-counting) dimension of a 2D set using the box-counting method.
 
+    BUG INTRODUCED: removed filtering of zero counts before log().
+    When array is empty or very sparse, counts contain zeros ->
+    log(0) = -inf -> linregress returns NaN slope.
+
     The method covers the binary image with square boxes of side length eps and counts
     N(eps): the number of boxes that contain at least one occupied pixel. The fractal
     dimension D is estimated as the slope of a linear regression in log-log coordinates:
@@ -106,16 +110,18 @@ def box_counting_2d(arr: np.ndarray,
     counts = np.array(counts, dtype=np.float64)
 
     # Guard: need at least 2 scales with non-zero counts for regression
-    valid_mask = counts > 0
-    if valid_mask.sum() < 2:
-        return {
-            "dimension": 0.0,
-            "epsilons": epsilons,
-            "counts": counts,
-            "slope": 0.0,
-            "intercept": 0.0,
-            "r_squared": 0.0,
-        }
+
+    # BUG
+    # valid_mask = counts > 0
+    # if valid_mask.sum() < 2:
+    #     return {
+    #         "dimension": 0.0,
+    #         "epsilons": epsilons,
+    #         "counts": counts,
+    #         "slope": 0.0,
+    #         "intercept": 0.0,
+    #         "r_squared": 0.0,
+    #     }
 
     # Perform linear regression
     log_inv_eps = np.log(1.0 / epsilons.astype(np.float64))
